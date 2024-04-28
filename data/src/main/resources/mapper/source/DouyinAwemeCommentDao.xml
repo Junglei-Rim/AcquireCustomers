@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.swpu.modules.source.dao.DouyinAwemeCommentDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="edu.swpu.modules.source.entity.DouyinAwemeCommentEntity" id="douyinAwemeCommentMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="secUid" column="sec_uid"/>
+        <result property="shortUserId" column="short_user_id"/>
+        <result property="userUniqueId" column="user_unique_id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="avatar" column="avatar"/>
+        <result property="userSignature" column="user_signature"/>
+        <result property="ipLocation" column="ip_location"/>
+        <result property="addTs" column="add_ts"/>
+        <result property="lastModifyTs" column="last_modify_ts"/>
+        <result property="commentId" column="comment_id"/>
+        <result property="awemeId" column="aweme_id"/>
+        <result property="content" column="content"/>
+        <result property="createTime" column="create_time"/>
+        <result property="subCommentCount" column="sub_comment_count"/>
+    </resultMap>
+
+
+</mapper>

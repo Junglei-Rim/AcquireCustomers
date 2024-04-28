@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.swpu.modules.source.dao.DouyinAwemeDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="edu.swpu.modules.source.entity.DouyinAwemeEntity" id="douyinAwemeMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="secUid" column="sec_uid"/>
+        <result property="shortUserId" column="short_user_id"/>
+        <result property="userUniqueId" column="user_unique_id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="avatar" column="avatar"/>
+        <result property="userSignature" column="user_signature"/>
+        <result property="ipLocation" column="ip_location"/>
+        <result property="addTs" column="add_ts"/>
+        <result property="lastModifyTs" column="last_modify_ts"/>
+        <result property="awemeId" column="aweme_id"/>
+        <result property="awemeType" column="aweme_type"/>
+        <result property="title" column="title"/>
+        <result property="desc" column="desc"/>
+        <result property="createTime" column="create_time"/>
+        <result property="likedCount" column="liked_count"/>
+        <result property="commentCount" column="comment_count"/>
+        <result property="shareCount" column="share_count"/>
+        <result property="collectedCount" column="collected_count"/>
+        <result property="awemeUrl" column="aweme_url"/>
+    </resultMap>
+
+
+</mapper>

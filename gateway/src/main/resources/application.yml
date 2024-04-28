@@ -1,0 +1,36 @@
+spring:
+  main:
+    web-application-type: reactive
+  profiles:
+    active: dev
+  cloud:
+    gateway:
+      routes:
+        - id: data_rote
+          uri: lb://ac-data
+          predicates:
+            - Path=/api/data/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*),/$\{segment}
+
+        - id: customer_rote
+          uri: lb://ac-customer
+          predicates:
+            - Path=/api/customer/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*),/$\{segment}
+
+        - id: strategy_rote
+          uri: lb://ac-strategy
+          predicates:
+            - Path=/api/strategy/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*),/$\{segment}
+
+    nacos:
+      server-addr: 192.168.61.145:8848
+  application:
+    name: ac-gateway
+server:
+  port: 9000
+

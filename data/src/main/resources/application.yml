@@ -1,0 +1,26 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: ac-data
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql:// 192.168.61.145/acquire_customers?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.61.145:8848
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+#spring??????
+logging:
+  level:
+    root: INFO
+    com.righteous.innovate: DEBUG
