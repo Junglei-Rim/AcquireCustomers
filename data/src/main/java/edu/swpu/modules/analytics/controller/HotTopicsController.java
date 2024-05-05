@@ -25,7 +25,7 @@ import edu.swpu.common.utils.R;
  * @date 2024-04-28 16:20:43
  */
 @RestController
-@RequestMapping("data/analytics/hottopics")
+@RequestMapping("/data/hottopics")
 public class HotTopicsController {
     @Autowired
     private HotTopicsService hotTopicsService;

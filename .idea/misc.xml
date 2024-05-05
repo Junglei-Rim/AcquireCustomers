@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/customer/pom.xml" />
         <option value="$PROJECT_DIR$/strategy/pom.xml" />
         <option value="$PROJECT_DIR$/common/pom.xml" />
+        <option value="$PROJECT_DIR$/renren-fast/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

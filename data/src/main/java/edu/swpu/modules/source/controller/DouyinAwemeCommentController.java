@@ -25,7 +25,7 @@ import edu.swpu.common.utils.R;
  * @date 2024-04-28 11:34:15
  */
 @RestController
-@RequestMapping("data/source/douyinawemecomment")
+@RequestMapping("/data/douyinawemecomment")
 public class DouyinAwemeCommentController {
     @Autowired
     private DouyinAwemeCommentService douyinAwemeCommentService;
@@ -36,7 +36,6 @@ public class DouyinAwemeCommentController {
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = douyinAwemeCommentService.queryPage(params);
-
         return R.ok().put("page", page);
     }
 

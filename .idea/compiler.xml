@@ -2,10 +2,12 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="renren-fast" />
         <module name="data" />
         <module name="strategy" />
         <module name="gateway" />
@@ -22,6 +24,7 @@
       <module name="data" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="master" options="" />
+      <module name="renren-fast" options="-parameters" />
       <module name="strategy" options="-parameters" />
     </option>
   </component>

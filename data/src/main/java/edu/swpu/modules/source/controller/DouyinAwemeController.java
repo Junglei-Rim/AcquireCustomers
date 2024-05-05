@@ -25,7 +25,7 @@ import edu.swpu.common.utils.R;
  * @date 2024-04-28 11:34:15
  */
 @RestController
-@RequestMapping("data/source/douyinaweme")
+@RequestMapping("/data/douyinaweme")
 public class DouyinAwemeController {
     @Autowired
     private DouyinAwemeService douyinAwemeService;

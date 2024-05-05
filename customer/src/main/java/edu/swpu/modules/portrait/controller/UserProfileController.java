@@ -26,7 +26,7 @@ import edu.swpu.modules.portrait.service.UserProfileService;
  * @date 2024-04-28 16:31:39
  */
 @RestController
-@RequestMapping("customer/portrait/userprofile")
+@RequestMapping("/customer/userprofile")
 public class UserProfileController {
     @Autowired
     private UserProfileService userProfileService;

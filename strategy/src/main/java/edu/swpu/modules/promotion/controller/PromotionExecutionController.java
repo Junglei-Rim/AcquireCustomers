@@ -25,7 +25,7 @@ import edu.swpu.common.utils.R;
  * @date 2024-04-28 17:51:43
  */
 @RestController
-@RequestMapping("strategy/promotion/promotionexecution")
+@RequestMapping("/strategy/promotionexecution")
 public class PromotionExecutionController {
     @Autowired
     private PromotionExecutionService promotionExecutionService;
