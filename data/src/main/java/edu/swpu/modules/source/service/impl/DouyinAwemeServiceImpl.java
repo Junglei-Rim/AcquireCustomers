@@ -20,7 +20,7 @@ public class DouyinAwemeServiceImpl extends ServiceImpl<DouyinAwemeDao, DouyinAw
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<DouyinAwemeEntity> page = this.page(
                 new Query<DouyinAwemeEntity>().getPage(params),
-                new QueryWrapper<DouyinAwemeEntity>()
+                new QueryWrapper<DouyinAwemeEntity>().orderByDesc("add_ts") // 根据时间戳倒序排序
         );
 
         return new PageUtils(page);

@@ -22,7 +22,7 @@ public class DouyinAwemeCommentServiceImpl extends ServiceImpl<DouyinAwemeCommen
 
         IPage<DouyinAwemeCommentEntity> page = this.page(
                 new Query<DouyinAwemeCommentEntity>().getPage(params),
-                new QueryWrapper<DouyinAwemeCommentEntity>()
+                new QueryWrapper<DouyinAwemeCommentEntity>().orderByDesc("add_ts") // 根据时间戳倒序排序
         );
 
 /*        // 从 params 中获取页码和每页条数
