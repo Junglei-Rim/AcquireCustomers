@@ -2,6 +2,8 @@ package edu.swpu.modules.source.service.impl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import edu.swpu.common.utils.Query;
+import edu.swpu.modules.source.entity.DouyinAwemeEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -16,6 +18,9 @@ import edu.swpu.modules.source.service.DouyinAwemeCommentService;
 
 @Service("douyinAwemeCommentService")
 public class DouyinAwemeCommentServiceImpl extends ServiceImpl<DouyinAwemeCommentDao, DouyinAwemeCommentEntity> implements DouyinAwemeCommentService {
+
+    @Autowired
+    private DouyinAwemeCommentDao douyinAwemeCommentDao;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -36,6 +41,23 @@ public class DouyinAwemeCommentServiceImpl extends ServiceImpl<DouyinAwemeCommen
         baseMapper.selectPage(page, null);*/
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public int countNewRecordsWithinOneMinute() {
+        // 获取当前时间戳（毫秒）
+        long currentTimestamp = System.currentTimeMillis();
+
+        // 计算一分钟前的时间戳
+        long oneMinuteAgoTimestamp = currentTimestamp - (60 * 1000);
+
+        // 构建查询条件
+        QueryWrapper<DouyinAwemeCommentEntity> wrapper = new QueryWrapper<>();
+        wrapper.ge("add_ts", oneMinuteAgoTimestamp); // 添加时间大于等于一分钟前的时间戳
+        wrapper.le("add_ts", currentTimestamp); // 添加时间小于等于当前时间戳
+
+        // 查询一分钟内新增的记录数
+        return douyinAwemeCommentDao.selectCount(wrapper);
     }
 
 }

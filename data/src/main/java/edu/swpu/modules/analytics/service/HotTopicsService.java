@@ -7,7 +7,7 @@ import edu.swpu.modules.analytics.entity.HotTopicsEntity;
 import java.util.Map;
 
 /**
- * 
+ *
  *
  * @author guozhenglei
  * @email guozhenglei7@gmail.com
@@ -16,5 +16,7 @@ import java.util.Map;
 public interface HotTopicsService extends IService<HotTopicsEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+
 }
 

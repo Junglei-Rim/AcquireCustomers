@@ -7,7 +7,7 @@ import edu.swpu.modules.source.entity.DouyinAwemeCommentEntity;
 import java.util.Map;
 
 /**
- * 
+ *
  *
  * @author guozhenglei
  * @email guozhenglei7@gmail.com
@@ -16,5 +16,7 @@ import java.util.Map;
 public interface DouyinAwemeCommentService extends IService<DouyinAwemeCommentEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    int countNewRecordsWithinOneMinute();
 }
 

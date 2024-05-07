@@ -7,7 +7,7 @@ import edu.swpu.modules.source.entity.DouyinAwemeEntity;
 import java.util.Map;
 
 /**
- * 
+ *
  *
  * @author guozhenglei
  * @email guozhenglei7@gmail.com
@@ -16,5 +16,11 @@ import java.util.Map;
 public interface DouyinAwemeService extends IService<DouyinAwemeEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    /**
+     * 根据添加时间戳addTs，查询一分钟以内新增数据的记录数
+     * @return
+     */
+    int countNewRecordsWithinOneMinute();
 }
 
