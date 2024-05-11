@@ -7,7 +7,7 @@ import edu.swpu.modules.analytics.entity.UserBehaviorStatsEntity;
 import java.util.Map;
 
 /**
- * 
+ *
  *
  * @author guozhenglei
  * @email guozhenglei7@gmail.com
@@ -16,5 +16,10 @@ import java.util.Map;
 public interface UserBehaviorStatsService extends IService<UserBehaviorStatsEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    //插入用户行为分析
+    void autoInsert();
+
+
 }
 

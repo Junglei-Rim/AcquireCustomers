@@ -3,6 +3,7 @@ package edu.swpu.modules.source.controller;
 import edu.swpu.common.utils.R;
 import edu.swpu.modules.analytics.entity.HotTopicsEntity;
 import edu.swpu.modules.analytics.service.HotTopicsService;
+import edu.swpu.modules.analytics.service.UserBehaviorStatsService;
 import edu.swpu.modules.source.entity.RequestDto;
 import edu.swpu.modules.source.service.DouyinAwemeCommentService;
 import edu.swpu.modules.source.service.DouyinAwemeService;
@@ -23,6 +24,9 @@ public class FlaskController {
 
     @Autowired
     private DouyinAwemeCommentService douyinAwemeCommentService;
+
+    @Autowired
+    private UserBehaviorStatsService userBehaviorStatsService;
 
     private final RestTemplate restTemplate;
 
@@ -60,6 +64,8 @@ public class FlaskController {
             hotTopicsEntity.setVideoCount(videoCount);
             System.out.println("热词表最后更新时间戳："+current_timestamp);
             hotTopicsService.save(hotTopicsEntity);
+            //操作用户分析表
+            userBehaviorStatsService.autoInsert();
         }
         // 返回Flask接口的响应给前端
         return R.ok().put("data",data);

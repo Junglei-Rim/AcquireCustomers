@@ -7,7 +7,7 @@ import edu.swpu.modules.portrait.entity.UserProfileEntity;
 import java.util.Map;
 
 /**
- * 
+ *
  *
  * @author guozhenglei
  * @email guozhenglei7@gmail.com
@@ -16,5 +16,6 @@ import java.util.Map;
 public interface UserProfileService extends IService<UserProfileEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
 }
 
