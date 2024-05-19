@@ -5,6 +5,8 @@ import edu.swpu.common.utils.Query;
 import edu.swpu.modules.source.entity.DouyinAwemeEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -58,6 +60,14 @@ public class DouyinAwemeCommentServiceImpl extends ServiceImpl<DouyinAwemeCommen
 
         // 查询一分钟内新增的记录数
         return douyinAwemeCommentDao.selectCount(wrapper);
+    }
+
+    @Override
+    public List<DouyinAwemeCommentEntity> findCommentsByContent(String content) {
+        QueryWrapper<DouyinAwemeCommentEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("content", content);
+        return douyinAwemeCommentDao.selectList(queryWrapper);
+
     }
 
 }

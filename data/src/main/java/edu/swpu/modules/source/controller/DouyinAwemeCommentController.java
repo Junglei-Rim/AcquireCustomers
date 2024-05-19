@@ -1,14 +1,11 @@
 package edu.swpu.modules.source.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import edu.swpu.modules.source.entity.DouyinAwemeCommentEntity;
 import edu.swpu.modules.source.service.DouyinAwemeCommentService;
@@ -29,6 +26,13 @@ import edu.swpu.common.utils.R;
 public class DouyinAwemeCommentController {
     @Autowired
     private DouyinAwemeCommentService douyinAwemeCommentService;
+
+
+    @GetMapping("/like")
+    public R getCommentsByContent(@RequestParam String content) {
+        List<DouyinAwemeCommentEntity> list = douyinAwemeCommentService.findCommentsByContent(content);
+        return R.ok().put("data",list);
+    }
 
     /**
      * 列表
