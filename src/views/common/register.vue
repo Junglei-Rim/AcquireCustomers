@@ -172,7 +172,7 @@ export default {
 };
 </script>
   
-  <style scoped>
+<style scoped>
   .video-background {
   position: relative;
   width: 100%;

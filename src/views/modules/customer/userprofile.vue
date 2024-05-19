@@ -26,55 +26,55 @@
         prop="id"
         header-align="center"
         align="center"
-        label="">
+        label="id">
       </el-table-column>
       <el-table-column
         prop="userId"
         header-align="center"
         align="center"
-        label="">
+        label="用户ID">
       </el-table-column>
       <el-table-column
         prop="nickname"
         header-align="center"
         align="center"
-        label="">
+        label="用户昵称">
       </el-table-column>
       <el-table-column
         prop="avatar"
         header-align="center"
         align="center"
-        label="">
+        label="用户头像地址">
       </el-table-column>
       <el-table-column
         prop="gender"
         header-align="center"
         align="center"
-        label="">
+        label="性别">
       </el-table-column>
       <el-table-column
         prop="age"
         header-align="center"
         align="center"
-        label="">
+        label="年龄">
       </el-table-column>
       <el-table-column
         prop="location"
         header-align="center"
         align="center"
-        label="">
+        label="地理位置">
       </el-table-column>
       <el-table-column
         prop="bio"
         header-align="center"
         align="center"
-        label="">
+        label="个人简介">
       </el-table-column>
       <el-table-column
         prop="interestTags"
         header-align="center"
         align="center"
-        label="">
+        label="兴趣标签">
       </el-table-column>
       <el-table-column
         fixed="right"

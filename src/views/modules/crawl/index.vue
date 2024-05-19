@@ -1,5 +1,11 @@
 <template>
   <div class="crawler">
+     <!-- 自动播放的视频背景 -->
+     <video autoplay muted loop playsinline class="background-video">
+      <source src="../../../assets/mp4/crawlbg.mp4" type="video/mp4">
+      您的浏览器不支持HTML5视频。
+    </video>
+
     <el-form :model="crawlerForm" label-width="100px">
       <el-form-item label="爬取平台">
         <el-select v-model="crawlerForm.platform" placeholder="请选择">
@@ -211,5 +217,25 @@ export default {
 .crawler {
   max-width: 600px;
   margin: 20px auto;
+  position: relative;
+  z-index: 1; /* 确保内容在视频上方 */
+}
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* 确保视频在内容下方 */
+}
+
+.el-form {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
+  padding: 20px;
+  border-radius: 8px;
 }
 </style>

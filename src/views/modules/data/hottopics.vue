@@ -33,25 +33,28 @@
         prop="topic"
         header-align="center"
         align="center"
-        label="topic">
+        label="话题内容">
       </el-table-column>
       <el-table-column
         prop="videoCount"
         header-align="center"
         align="center"
-        label="videoCount">
+        label="相关视频数量">
       </el-table-column>
       <el-table-column
         prop="commentCount"
         header-align="center"
         align="center"
-        label="commentCount">
+        label="相关评论数量">
       </el-table-column>
       <el-table-column
         prop="lastUpdateTs"
         header-align="center"
         align="center"
-        label="lastUpdateTs">
+        label="最后更新时间戳">
+        <template slot-scope="scope">
+          {{ scope.row.lastUpdateTs | timestampToDate }}
+        </template>
       </el-table-column>
       <el-table-column
         fixed="right"
@@ -177,6 +180,21 @@
           })
         })
       }
+    },
+    filters: {
+    // 自定义过滤器将时间戳转换为日期
+    timestampToDate(timestamp) {
+      // 使用JavaScript内置的Date对象将时间戳转换为日期对象
+      const date = new Date(timestamp);
+      // 使用日期对象的方法获取年月日时分秒等信息，拼接成可读的日期格式
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const seconds = String(date.getSeconds()).padStart(2, '0');
+      return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     }
+  }
   }
 </script>

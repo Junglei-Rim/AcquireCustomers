@@ -26,55 +26,55 @@
         prop="id"
         header-align="center"
         align="center"
-        label="">
+        label="id">
       </el-table-column>
       <el-table-column
         prop="userId"
         header-align="center"
         align="center"
-        label="">
+        label="用户ID">
       </el-table-column>
       <el-table-column
         prop="totalLikes"
         header-align="center"
         align="center"
-        label="">
+        label="总点赞数">
       </el-table-column>
       <el-table-column
         prop="totalComments"
         header-align="center"
         align="center"
-        label="">
+        label="总评论数">
       </el-table-column>
       <el-table-column
         prop="totalShares"
         header-align="center"
         align="center"
-        label="">
+        label="总分享数">
       </el-table-column>
       <el-table-column
         prop="totalVideos"
         header-align="center"
         align="center"
-        label="">
+        label="总发布视频数">
       </el-table-column>
       <el-table-column
         prop="totalCommentsOnOwnVideos"
         header-align="center"
         align="center"
-        label="">
+        label="自己视频的总评论数">
       </el-table-column>
       <el-table-column
         prop="totalCommentsOnOtherVideos"
         header-align="center"
         align="center"
-        label="">
+        label="评论他人视频的总次数">
       </el-table-column>
       <el-table-column
         prop="lastInteractionTs"
         header-align="center"
         align="center"
-        label="">
+        label="最后互动时间戳">
       </el-table-column>
       <el-table-column
         fixed="right"

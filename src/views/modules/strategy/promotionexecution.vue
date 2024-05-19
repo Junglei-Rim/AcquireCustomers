@@ -26,31 +26,31 @@
         prop="id"
         header-align="center"
         align="center"
-        label="">
+        label="id">
       </el-table-column>
       <el-table-column
         prop="planId"
         header-align="center"
         align="center"
-        label="">
+        label="推广计划ID">
       </el-table-column>
       <el-table-column
         prop="userId"
         header-align="center"
         align="center"
-        label="">
+        label="用户ID">
       </el-table-column>
       <el-table-column
         prop="executionTs"
         header-align="center"
         align="center"
-        label="">
+        label="执行时间戳">
       </el-table-column>
       <el-table-column
         prop="result"
         header-align="center"
         align="center"
-        label="">
+        label="推广结果">
       </el-table-column>
       <el-table-column
         fixed="right"

@@ -32,7 +32,7 @@
         prop="userId"
         header-align="center"
         align="center"
-        label="userId">
+        label="用户ID">
       </el-table-column>
       <el-table-column
         prop="secUid"
@@ -56,97 +56,109 @@
         prop="nickname"
         header-align="center"
         align="center"
-        label="nickname">
+        label="用户昵称">
       </el-table-column>
       <el-table-column
         prop="avatar"
         header-align="center"
         align="center"
-        label="avatar">
+        label="头像地址">
+        <template slot-scope="scope">
+          <img :src="scope.row.avatar" style="width: 100%; height: 100%; object-fit: cover;" />
+        </template>
       </el-table-column>
       <el-table-column
         prop="userSignature"
         header-align="center"
         align="center"
-        label="userSignature">
+        label="用户签名">
       </el-table-column>
       <el-table-column
         prop="ipLocation"
         header-align="center"
         align="center"
-        label="ipLocation">
+        label="IP地址">
       </el-table-column>
       <el-table-column
         prop="addTs"
         header-align="center"
         align="center"
-        label="addTs">
+        label="添加时间戳">
+        <template slot-scope="scope">
+          {{ scope.row.addTs | timestampToDate }}
+        </template>
       </el-table-column>
       <el-table-column
         prop="lastModifyTs"
         header-align="center"
         align="center"
-        label="lastModifyTs">
+        label="修改时间戳">
+         <template slot-scope="scope">
+          {{ scope.row.lastModifyTs | timestampToDate }}
+        </template>
       </el-table-column>
       <el-table-column
         prop="awemeId"
         header-align="center"
         align="center"
-        label="awemeId">
+        label="视频ID">
       </el-table-column>
       <el-table-column
         prop="awemeType"
         header-align="center"
         align="center"
-        label="awemeType">
+        label="视频类型">
       </el-table-column>
       <el-table-column
         prop="title"
         header-align="center"
         align="center"
-        label="title">
+        label="视频标题">
       </el-table-column>
       <el-table-column
         prop="desc"
         header-align="center"
         align="center"
-        label="desc">
+        label="视频描述">
       </el-table-column>
       <el-table-column
         prop="createTime"
         header-align="center"
         align="center"
-        label="createTime">
+        label="发布时间戳">
+        <template slot-scope="scope">
+          {{ scope.row.createTime | timestampToDate }}
+        </template>
       </el-table-column>
       <el-table-column
         prop="likedCount"
         header-align="center"
         align="center"
-        label="likedCount">
+        label="点赞数">
       </el-table-column>
       <el-table-column
         prop="commentCount"
         header-align="center"
         align="center"
-        label="commentCount">
+        label="评论数">
       </el-table-column>
       <el-table-column
         prop="shareCount"
         header-align="center"
         align="center"
-        label="shareCount">
+        label="分享数">
       </el-table-column>
       <el-table-column
         prop="collectedCount"
         header-align="center"
         align="center"
-        label="collectedCount">
+        label="收藏数">
       </el-table-column>
       <el-table-column
         prop="awemeUrl"
         header-align="center"
         align="center"
-        label="awemeUrl">
+        label="详情页URL">
       </el-table-column>
       <el-table-column
         fixed="right"
@@ -272,6 +284,21 @@
           })
         })
       }
+    },
+    filters: {
+    // 自定义过滤器将时间戳转换为日期
+    timestampToDate(timestamp) {
+      // 使用JavaScript内置的Date对象将时间戳转换为日期对象
+      const date = new Date(timestamp);
+      // 使用日期对象的方法获取年月日时分秒等信息，拼接成可读的日期格式
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const seconds = String(date.getSeconds()).padStart(2, '0');
+      return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     }
+  }
   }
 </script>

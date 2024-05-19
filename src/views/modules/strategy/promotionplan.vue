@@ -26,61 +26,61 @@
         prop="id"
         header-align="center"
         align="center"
-        label="">
+        label="id">
       </el-table-column>
       <el-table-column
         prop="planName"
         header-align="center"
         align="center"
-        label="">
+        label="推广计划名称">
       </el-table-column>
       <el-table-column
         prop="targetUserCriteria"
         header-align="center"
         align="center"
-        label="">
+        label="目标用户条件">
       </el-table-column>
       <el-table-column
         prop="promotionStrategy"
         header-align="center"
         align="center"
-        label="">
+        label="推广策略">
       </el-table-column>
       <el-table-column
         prop="startDate"
         header-align="center"
         align="center"
-        label="">
+        label="开始日期">
       </el-table-column>
       <el-table-column
         prop="endDate"
         header-align="center"
         align="center"
-        label="">
+        label="结束日期">
       </el-table-column>
       <el-table-column
         prop="status"
         header-align="center"
         align="center"
-        label="">
+        label="状态">
       </el-table-column>
       <el-table-column
         prop="createdBy"
         header-align="center"
         align="center"
-        label="">
+        label="创建者">
       </el-table-column>
       <el-table-column
         prop="createdTs"
         header-align="center"
         align="center"
-        label="">
+        label="创建时间戳">
       </el-table-column>
       <el-table-column
         prop="lastModifyTs"
         header-align="center"
         align="center"
-        label="">
+        label="最后修改时间戳">
       </el-table-column>
       <el-table-column
         fixed="right"

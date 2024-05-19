@@ -73,7 +73,7 @@
         </el-col>
 
         <el-col :span="12">
-          <video class="vdeio_show" controls>
+          <video autoplay muted loop playsinline class="vdeio_show" controls>
             <source src="../../assets/mp4/company_video.mp4" type="video/mp4" />
             您的浏览器不支持 video 标签。
           </video>
@@ -256,7 +256,7 @@
               ></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" @click="submitForm"
+              <el-button  type="primary" @click="submitForm"
                 >申请免费使用</el-button
               >
             </el-form-item>
@@ -320,10 +320,16 @@ export default {
       this.$router.replace({ name: 'register' })
     },
     submitForm() {
+      const h = this.$createElement;
+
       this.$refs.form.validate((valid) => {
         if (valid) {
           // 提交表单逻辑
           console.log("提交表单成功");
+          this.$notify({
+          title: '申请成功',
+          message: h('i', { style: 'color: teal'}, '请前往注册，登录后体验完整功能！')
+        });
         } else {
           console.log("表单校验失败");
           return false;
