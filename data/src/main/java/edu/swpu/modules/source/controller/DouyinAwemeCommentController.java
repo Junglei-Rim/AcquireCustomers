@@ -29,9 +29,9 @@ public class DouyinAwemeCommentController {
 
 
     @GetMapping("/like")
-    public R getCommentsByContent(@RequestParam String content) {
+    public List<DouyinAwemeCommentEntity> getCommentsByContent(@RequestParam String content) {
         List<DouyinAwemeCommentEntity> list = douyinAwemeCommentService.findCommentsByContent(content);
-        return R.ok().put("data",list);
+        return list;
     }
 
     /**

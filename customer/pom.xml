@@ -21,6 +21,13 @@
         <spring-cloud.version>2021.0.7</spring-cloud.version>
     </properties>
     <dependencies>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20210307</version>
+        </dependency>
+
         <!--openfeign远程调用依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -53,6 +60,12 @@
         <dependency>
             <groupId>edu.swpu</groupId>
             <artifactId>master</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>edu.swpu</groupId>
+            <artifactId>data</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

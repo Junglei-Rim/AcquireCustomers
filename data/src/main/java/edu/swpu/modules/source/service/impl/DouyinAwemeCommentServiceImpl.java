@@ -49,10 +49,8 @@ public class DouyinAwemeCommentServiceImpl extends ServiceImpl<DouyinAwemeCommen
     public int countNewRecordsWithinOneMinute() {
         // 获取当前时间戳（毫秒）
         long currentTimestamp = System.currentTimeMillis();
-
         // 计算一分钟前的时间戳
         long oneMinuteAgoTimestamp = currentTimestamp - (60 * 1000);
-
         // 构建查询条件
         QueryWrapper<DouyinAwemeCommentEntity> wrapper = new QueryWrapper<>();
         wrapper.ge("add_ts", oneMinuteAgoTimestamp); // 添加时间大于等于一分钟前的时间戳

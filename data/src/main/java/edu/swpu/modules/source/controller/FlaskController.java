@@ -70,4 +70,5 @@ public class FlaskController {
         // 返回Flask接口的响应给前端
         return R.ok().put("data",data);
     }
+
 }
