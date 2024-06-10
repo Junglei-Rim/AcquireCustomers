@@ -1,4 +1,75 @@
-@[TOC](目录)
+### 项目部署文档
+
+详细操作可参考我的博客日志：[项目部署详情](https://guozhenglei.blog.csdn.net/article/details/136792681)
+
+#### 1. 虚拟机环境
+
+1. 使用 VMware 或 VirtualBox 等虚拟机软件，使用 CentOS 7 镜像部署 Linux 操作系统，内网 IP 设置为 192.168.61.145。
+
+2. 安装 Docker 服务。
+
+3. 拉取相关镜像：
+
+    - MySQL：5.6
+    - Nacos：v2.1.1
+    - Elasticsearch：7.12.1
+    - Kibana：7.12.1
+
+   运行容器并开放对应的端口。
+
+#### 2. 前端程序
+
+1. 使用 Visual Studio 打开项目文件。
+
+2. 在命令行中运行以下命令：
+
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+#### 3. 后端程序
+
+1. 使用 IDEA 打开项目。
+2. 下载相关 Jar 包。
+3. 使用以下版本：
+    - Java 17
+    - Maven 3.6.1
+    - Spring Boot 2.6.6
+    - Spring Cloud 2021.0.7
+4. 启动 Spring Boot 主类。
+5. 数据库密码根据具体情况设置。
+
+#### 4. 运行相关 SQL 脚本
+
+1. 管理平台数据库：
+
+   ```sql
+   AcquireCustomers\renren-fast\db\mysql.sql
+   ```
+
+2. 系统主要数据库：
+
+   ```sql
+   AcquireCustomers\acquire_customers.sql
+   ```
+
+3. Nacos 日志数据库：
+
+   ```sql
+   AcquireCustomers\nacos_devtest.sql
+   ```
+
+#### 5. 爬虫程序
+
+1. 使用 Python 3.9 版本。
+2. 安装具体依赖，详见项目 README 文件。
+3. 运行 `main.py` 启动爬虫程序。
+
+---
+
+如需详细步骤和示例代码，请参考我的博客日志：[项目部署详情](https://guozhenglei.blog.csdn.net/article/details/136792681)。
+
 # 1.选题概述
 
 ## 1.题目背景

@@ -57,6 +57,7 @@ public class UserProfileEntity implements Serializable {
 	 */
 	private String interestTags;
 
+	private String type;
 }
 
 

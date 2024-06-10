@@ -94,15 +94,22 @@ public class UserProfileController {
         //3.对查询出的评论进行情感分析：正面评论，负面评论，中性评论
         int mark = 0;
         int cnt = 0;
+        Random random = new Random();
         for (DouyinAwemeCommentEntity comment : comments) {
             String flag = emotionAnalysis.getEmotional(comment.getContent());
             //4.对筛选出的评论提取中心词作为画像的兴趣标签
             String words = chineseWordSegmentation.getWords(comment.getContent());
             UserProfileEntity userProfile = new UserProfileEntity();
+            userProfile.setType(keyword);
             if (flag.equals("正面")) {
-                userProfile.setGender(Gender.male);
+                int randomSex = random.nextInt(2);
+                if (randomSex == 1) {
+                    userProfile.setGender(Gender.male);
+                } else {
+                    userProfile.setGender(Gender.female);
+                }
             } else if (flag.equals("中性")) {
-                userProfile.setGender(Gender.female);
+                userProfile.setGender(Gender.unknown);
             } else {
                 continue;
             }
@@ -112,7 +119,6 @@ public class UserProfileController {
             userProfile.setBio(comment.getUserSignature());
             userProfile.setNickname(comment.getNickname());
             userProfile.setAvatar(comment.getAvatar());
-            Random random = new Random();
             int ageRandom = random.nextInt(15, 60);
             userProfile.setAge(ageRandom);
             userProfile.setLocation(comment.getIpLocation());
@@ -124,7 +130,7 @@ public class UserProfileController {
         if (cnt > 0) {
             mark = 1;
         }
-        return mark == 1 ? R.ok("获取客户成功！本次共获取用户数量："+cnt) : R.error("获取失败，请爬取之后重试！");
+        return mark == 1 ? R.ok("获取客户成功！本次共获取用户数量：" + cnt) : R.error("获取失败，请爬取之后重试！");
     }
 
 

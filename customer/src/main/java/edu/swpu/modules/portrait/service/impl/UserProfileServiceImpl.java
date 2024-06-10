@@ -20,7 +20,8 @@ public class UserProfileServiceImpl extends ServiceImpl<UserProfileDao, UserProf
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<UserProfileEntity> page = this.page(
                 new Query<UserProfileEntity>().getPage(params),
-                new QueryWrapper<UserProfileEntity>()
+                new QueryWrapper<UserProfileEntity>().orderByDesc("id")//根据id倒序查询
+
         );
 
         return new PageUtils(page);
