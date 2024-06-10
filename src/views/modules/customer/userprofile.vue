@@ -2,10 +2,10 @@
   <div class="mod-config">
     <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
       <el-form-item>
-        <el-input v-model="dataForm.key" placeholder="参数名" clearable></el-input>
+        <el-input v-model="dataForm.key" placeholder="请输入关键词进行识别" clearable></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button @click="getDataList()">查询</el-button>
+        <el-button @click="getCustomer()">开始识别</el-button>
         <el-button  type="primary" @click="addOrUpdateHandle()">新增</el-button>
         <el-button  type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
       </el-form-item>
@@ -45,6 +45,9 @@
         header-align="center"
         align="center"
         label="用户头像地址">
+        <template slot-scope="scope">
+          <img :src="scope.row.avatar" style="width: 100%; height: 100%; object-fit: cover;" />
+        </template>
       </el-table-column>
       <el-table-column
         prop="gender"
@@ -75,6 +78,12 @@
         header-align="center"
         align="center"
         label="兴趣标签">
+      </el-table-column>
+      <el-table-column
+        prop="type"
+        header-align="center"
+        align="center"
+        label="客户类型">
       </el-table-column>
       <el-table-column
         fixed="right"
@@ -126,6 +135,35 @@
       this.getDataList()
     },
     methods: {
+      //新增客户操作
+      getCustomer(){
+        this.dataListLoading = true
+        this.$http({
+          url: this.$http.adornUrl('/customer/userprofile/getCustomer'),
+          method: 'get',
+          params: this.$http.adornParams({
+            'keyword': this.dataForm.key
+          })
+        }).then(({data}) => {
+          if (data && data.code === 0) {
+             console.log(data.msg)
+             this.$message({
+             showClose: true,
+             message: data.msg,
+             type: 'success'
+            });
+            getDataList ()
+          } else {
+            console.log(data.msg)
+             this.$message({
+            showClose: true,
+            message: data.msg,
+            type: 'error'
+        });
+          }
+          this.dataListLoading = false
+        })
+      },
       // 获取数据列表
       getDataList () {
         this.dataListLoading = true
@@ -141,12 +179,33 @@
           if (data && data.code === 0) {
             this.dataList = data.page.list
             this.totalPage = data.page.totalCount
+             // 提取tags数据
+             this.extractTags(this.dataList)
           } else {
             this.dataList = []
             this.totalPage = 0
           }
           this.dataListLoading = false
         })
+      },
+      // 提取tags数据
+      extractTags(dataList) {
+         // 遍历dataList中的每个实体
+       dataList.forEach(entity => {
+          const interestTags = entity.interestTags
+         // 尝试将interestTags解析为JSON对象
+          let tagsData
+          try {
+             tagsData = JSON.parse(interestTags)
+         } catch (error) {
+             console.error("Failed to parse interestTags:", error)
+             return
+          }
+        // 提取tags数据
+        const tags = tagsData.result.map(tag => tag.tags).flat()
+        // 将tags数据附加到实体中
+        entity.interestTags = tags
+       })
       },
       // 每页数
       sizeChangeHandle (val) {
